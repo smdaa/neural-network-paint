@@ -64,11 +64,15 @@ function generate_zooming_images(model, size_h, size_w, num_images)
     VideoIO.save("video.mp4", imgstack, framerate=24, encoder_options=encoder_options)
 end
 
-model = build_model(25, tanh)
+model = build_model(64, tanh)
 size_h = 2000
 size_w = 2000
 num_images = 128
 
-print(Threads.nthreads())
+#print(Threads.nthreads())
 
-generate_zooming_images(model, size_h, size_w, num_images)
+#generate_zooming_images(model, size_h, size_w, num_images)
+
+
+image = generate_image(model, size_h, size_w, 1)
+save("image5.png", colorview(RGB, image))
